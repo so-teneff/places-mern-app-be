@@ -4,7 +4,8 @@ const HttpError = require('../models/http-error');
 
 module.exports = (req, res, next) => {
   if (req.method === 'OPTIONS') {
-    return next();
+    next();
+    return;
   }
 
   try {
@@ -18,6 +19,6 @@ module.exports = (req, res, next) => {
     next();
   } catch (err) {
     const error = new HttpError('Authentication failed!', 403);
-    return next(error);
+    next(error);
   }
 };

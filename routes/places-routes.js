@@ -21,13 +21,13 @@ router.post(
     check('description').isLength({ min: 5 }),
     check('address').not().isEmpty(),
   ],
-  placesControllers.createPlace
+  placesControllers.createPlace,
 );
 
 router.patch(
   '/:pid',
   [check('title').not().isEmpty(), check('description').isLength({ min: 5 })],
-  placesControllers.updatePlace
+  placesControllers.updatePlace,
 );
 
 router.delete('/:pid', placesControllers.deletePlace);
